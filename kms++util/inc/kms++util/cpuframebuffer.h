@@ -14,16 +14,16 @@ public:
 	CPUFramebuffer(const CPUFramebuffer& other) = delete;
 	CPUFramebuffer& operator=(const CPUFramebuffer& other) = delete;
 
-	uint32_t width() const { return m_width; }
-	uint32_t height() const { return m_height; }
+	uint32_t width() const override { return m_width; }
+	uint32_t height() const override { return m_height; }
 
-	PixelFormat format() const { return m_format; }
-	unsigned num_planes() const { return m_num_planes; }
+	PixelFormat format() const override { return m_format; }
+	unsigned num_planes() const override { return m_num_planes; }
 
-	uint32_t stride(unsigned plane) const { return m_planes[plane].stride; }
-	uint32_t size(unsigned plane) const { return m_planes[plane].size; }
-	uint32_t offset(unsigned plane) const { return m_planes[plane].offset; }
-	uint8_t* map(unsigned plane) { return m_planes[plane].map; }
+	uint32_t stride(unsigned plane) const override { return m_planes[plane].stride; }
+	uint32_t size(unsigned plane) const override { return m_planes[plane].size; }
+	uint32_t offset(unsigned plane) const override { return m_planes[plane].offset; }
+	uint8_t* map(unsigned plane) override { return m_planes[plane].map; }
 
 private:
 	struct FramebufferPlane {
