@@ -1,8 +1,4 @@
-#include <map>
-
 #include <kms++util/cpuframebuffer.h>
-
-using namespace std;
 
 namespace kms {
 
