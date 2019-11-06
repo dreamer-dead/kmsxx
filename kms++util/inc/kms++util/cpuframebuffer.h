@@ -9,7 +9,7 @@ class CPUFramebuffer : public IFramebuffer {
 public:
 	CPUFramebuffer(uint32_t width, uint32_t height, PixelFormat format);
 
-	virtual ~CPUFramebuffer();
+	~CPUFramebuffer() override;
 
 	CPUFramebuffer(const CPUFramebuffer& other) = delete;
 	CPUFramebuffer& operator=(const CPUFramebuffer& other) = delete;
@@ -33,12 +33,12 @@ private:
 		uint8_t *map;
 	};
 
-	uint32_t m_width;
-	uint32_t m_height;
-	PixelFormat m_format;
+	const uint32_t m_width;
+	const uint32_t m_height;
+	const PixelFormat m_format;
 
 	unsigned m_num_planes;
-	struct FramebufferPlane m_planes[4];
+	FramebufferPlane m_planes[4];
 };
 
 }
